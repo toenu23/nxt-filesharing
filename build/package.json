@@ -1,0 +1,14 @@
+{
+  "name": "build",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "toenu <toenu23@gmail.com> (http://nxtresource.com/)",
+  "license": "ISC",
+  "dependencies": {
+    "parse-torrent-file": "^2.1.3"
+  }
+}

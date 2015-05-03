@@ -1,0 +1,46 @@
+.p_filesharing_search {
+  position:absolute;
+  top:9px;
+  right:9px;
+  margin-left:175px;
+}
+.p_filesharing_addbtn {
+  position:absolute;
+  top:9px;
+}
+.p_filesharing_openbtn, .p_filesharing_infobtn, .p_filesharing_warning_po {
+  display:none;
+}
+.p_filesharing_addbtn {
+  right: 9px;
+}
+.p_filesharing_btn-file {
+  position: relative;
+  overflow: hidden;
+}
+.p_filesharing_btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-left:5px;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  background: white;
+  cursor: inherit;
+  display: block;
+}
+.p_filesharing_extend_po, .p_filesharing_warning_po {
+  color:#4CAA6E;
+}
+#p_filesharing_info_table td {
+  word-wrap: break-word;
+  max-width:300px;
+}
+#p_filesharing_list_tmpl, #p_filesharing_pgn_tor_prev, #p_filesharing_pgn_tag_prev {
+  display:none;
+}

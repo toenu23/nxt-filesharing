@@ -1,0 +1,212 @@
+<!--
+Add File Modal
+-->
+<div class="modal fade" id="p_filesharing_add_modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <form role="form" autocomplete="off" id="p_filesharing_add_form">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            &times;
+          </button>
+          <h4 class="modal-title">Add File</h4>
+        </div>
+
+        <div class="modal-body">
+
+          <div class="callout callout-danger error_message" id="p_filesharing_add_error" style="display:none"></div>
+          <div class="form-group">
+            <label for="p_filesharing_name">Name</label>
+            <input type="text" class="form-control" name="name" id="p_filesharing_name" placeholder="Name" tabindex="1" />
+          </div>
+          <div class="form-group">
+            <label for="p_filesharing_description">Description</label>
+            <textarea class="form-control" id="p_filesharing_description" name="description" rows="3" tabindex="2"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="p_filesharing_channel">Channel</label>
+            <input type="text" class="form-control" name="name" id="p_filesharing_channel" placeholder="e.g. linux distributions" tabindex="3" />
+          </div>
+
+          <div class="form-group">
+
+            <label for="p_filesharing_data">Data</label>
+            <textarea class="form-control" name="data" id="p_filesharing_data" placeholder="e.g. magnet link or file contents" tabindex="4" rows="3"></textarea>            
+
+
+          </div>
+
+          <div class="form-group">
+            <span class="btn btn-default p_filesharing_btn-file"> Browse
+              <input type="file" id="p_filesharing_file" tabindex="5">
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label for="p_filesharing_type">MIME Type</label>
+            <input type="text" class="form-control" name="type" id="p_filesharing_type" placeholder="application/x-bittorent" tabindex="6" />
+          </div>
+
+          <div class="form-group">
+            <label for="p_filesharing_filename">File name</label>
+            <input type="text" class="form-control" name="filename" id="p_filesharing_filename" placeholder="File name" tabindex="7" />
+          </div>
+
+          <div class="form-group">
+            <label for="p_filesharing_tags"><span>Tags</span> <i class="fa fa-question-circle show_popover" data-content="Keywords separated by spaces." data-container="body" style="color:#4CAA6E" ></i></label>
+            <input type="text" class="form-control" name="tags" id="p_filesharing_tags" placeholder="Tags" tabindex="8" />
+          </div>
+
+          <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6">
+              <div class="form-group">
+                <label for="p_filesharing_add_fee">Fee NXT</label>
+                <div class="input-group">
+                  <input type="number" name="feeNXT" id="p_filesharing_add_fee" class="form-control" step="any" min="1" placeholder="Fee" data-default="1" value="1" tabindex="9">
+                  <span class="input-group-addon">NXT</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xs-6 col-sm-6 col-md-6">
+              <div class="form-group">
+                <label for="p_filesharing_add_deadline">Deadline (hours)</label>
+                <input type="number" name="deadline" id="p_filesharing_add_deadline" class="form-control" placeholder="Deadline" min="1" data-default="24" value="24" tabindex="10">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group secret_phrase">
+            <label for="p_filesharing_add_password">Passphrase</label>
+            <input type="password" name="secretPhrase" id="p_filesharing_add_password" class="form-control" placeholder="" tabindex="11">
+          </div>
+          <input type="hidden" name="request_type" value="uploadTaggedData" />
+
+        </div>
+        <div class="modal-footer" style="margin-top:0;">
+          <input type="hidden" id="p_filesharing_add_istext" value="true" />
+          <button type="button" class="btn btn-default" data-dismiss="modal">
+            Close
+          </button>
+          <button type="submit" class="btn btn-primary" data-loading-text="Submitting...">
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!--
+View Data Modal
+-->
+<div class="modal fade" id="p_filesharing_view_modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+          &times;
+        </button>
+        <h4 class="modal-title"></h4>
+      </div>
+      <div class="modal-body">
+
+        <table class="table table-striped" id="p_filesharing_info_table" style="margin-bottom: 0;">
+          <tbody>
+            <tr>
+              <td><strong>Name</strong></td>
+              <td id="p_filesharing_it_name"></td>
+            </tr>
+            <tr>
+              <td><strong>Filename</strong></td>
+              <td id="p_filesharing_it_filename"></td>
+            </tr>
+            <tr>
+              <td><strong>Expiration</strong></td>
+              <td id="p_filesharing_it_expdate"></td>
+            </tr>
+            <tr>
+              <td><strong>Uploader</strong></td>
+              <td id="p_filesharing_it_account"></td>
+            </tr>
+            <tr>
+              <td><strong>Description</strong></td>
+              <td id="p_filesharing_it_description"></td>
+            </tr>
+            <tr>
+              <td><strong>Data</strong></td>
+              <td>              <textarea id="p_filesharing_it_data" class="form-control" rows="3"></textarea></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="modal-footer" style="margin-top:0;">
+        <button type="button" class="btn btn-default" data-dismiss="modal">
+          Close
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!--
+Extend Modal
+-->
+<div class="modal fade" id="p_filesharing_extend_modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+          &times;
+        </button>
+        <h4 class="modal-title">Extend Transaction</h4>
+      </div>
+      <form role="form" autocomplete="off" id="p_filesharing_extend_form">
+        <div class="modal-body">
+          <p>
+            Extending a transaction will make it available for an additional two weeks.
+          </p>
+          <div class="callout callout-danger error_message" id="p_filesharing_extend_error" style="display:none"></div>
+          <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6">
+              <div class="form-group">
+                <label for="p_filesharing_fee">Fee NXT</label>
+                <div class="input-group">
+                  <input type="number" name="feeNXT" id="p_filesharing_extend_fee" class="form-control" step="any" min="1" placeholder="Fee" data-default="1" value="1" tabindex="121">
+                  <span class="input-group-addon">NXT</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xs-6 col-sm-6 col-md-6">
+              <div class="form-group">
+                <label for="p_filesharing_deadline">Deadline (hours)</label>
+                <input type="number" name="deadline" id="p_filesharing_extend_deadline" class="form-control" placeholder="Deadline" min="1" data-default="24" value="24" tabindex="122">
+              </div>
+            </div>
+          </div>
+          <div class="form-group secret_phrase">
+            <label for="p_filesharing_extend_password">Passphrase</label>
+            <input type="password" name="secretPhrase" id="p_filesharing_extend_password" class="form-control" placeholder="" tabindex="111">
+          </div>
+
+          <input type="hidden" name="transaction" id="p_filesharing_extend_transaction" value="" />
+          <input type="hidden" name="request_type" value="extendTaggedData" />
+
+        </div>
+        <div class="modal-footer" style="margin-top:0;">
+          <button type="button" class="btn btn-default" data-dismiss="modal">
+            Close
+          </button>
+          <button type="submit" class="btn btn-primary" data-loading-text="Submitting...">
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
