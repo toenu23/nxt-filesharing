@@ -479,6 +479,12 @@ var NRS = (function(NRS, $, undefined) {
 
     if(NRS.rememberPassword) $('.secret_phrase').hide();
 
+    $('#p_filesharing_title').click(function(){
+      dataPage = 1;
+      var query = { firstIndex : 0, lastIndex : (itemsPerPage - 1) };
+      updateDataList(query, true);
+    });
+
     $('#p_filesharing_add_btn').click(function(){
 
       $('#p_filesharing_name').val('');

@@ -44,3 +44,6 @@
 #p_filesharing_list_tmpl, #p_filesharing_pgn_tor_prev, #p_filesharing_pgn_tag_prev {
   display:none;
 }
+#p_filesharing_title {
+  color: black;
+}
