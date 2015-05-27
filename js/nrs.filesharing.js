@@ -503,7 +503,7 @@ var NRS = (function(NRS, $, undefined) {
       $('#p_filesharing_add_istext').val('true');
       $('#p_filesharing_add_password').val('');
       $('#p_filesharing_add_fee').val('1');
-      $('#p_filesharing_add_deadline').val('24'); 
+      $('#p_filesharing_add_deadline').val('1440'); 
     });
   
     $('#p_filesharing_pgn_tor_next').click(function(){
