@@ -255,7 +255,10 @@ var NRS = (function(NRS, $, undefined) {
 
       $('#p_filesharing_it_expdate').text(expdate);
       $('#p_filesharing_it_account').text(data.accountRS);
-      $('#p_filesharing_it_description').html(String(data.description).autoLink());
+      
+      var description = String(data.description).autoLink();
+      description = description.replace(/\n/g,"<br>");
+      $('#p_filesharing_it_description').html(description);
       $('#p_filesharing_it_data').val(data.data);
     });
 
@@ -305,7 +308,10 @@ var NRS = (function(NRS, $, undefined) {
     // Description
     var description = data.description.substr(0,descriptionLength);
     if(description.length == descriptionLength) description += '...';
-    $("p.p_filesharing_description", elem).append(String(description).autoLink());
+    
+    description = String(description).autoLink();
+    description = description.replace(/\n/g,"<br>");
+    $("p.p_filesharing_description", elem).append(description);
 
     // Tags
     var tagstr = $('<small/>');
