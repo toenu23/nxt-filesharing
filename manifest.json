@@ -1,10 +1,10 @@
 {
   "pluginVersion": 1,
   "name": "File sharing",
-  "myVersion": "v.0.1",
+  "myVersion": "v.0.2",
   "shortDescription": "Publish and find torrents and other files using the tagged data feature",
   "infoUrl": "https://github.com/toenu23/nxt-filesharing",
   "startPage": "p_filesharing",
-  "nrsVersion": "1.5.0",
+  "nrsVersion": "1.5.10",
   "deactivated": false
 }
